@@ -14,6 +14,20 @@ body {
 }
 
 /* Main Menu */
+#menu-title {
+  font-size: 6vmin;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+  top: 3vmin;
+  bottom: 5vmin;
+  user-select: none;
+}
+
 #menu-image-track {
   display: flex;
   gap: 8vmin;
@@ -26,8 +40,6 @@ body {
 
 .menu-image-container {
   position: relative;
-  /* width: 40vmin;
-  height: 50vmin; */
   width: 550px;
   height: 725px;
   transform: scale(1);
@@ -35,8 +47,6 @@ body {
 }
 
 .menu-image, .menu-image-back {
-  /* width: 40vmin;
-  height: 50vmin; */
   width: 550px;
   height: 725px;
   object-fit: cover;
@@ -94,6 +104,26 @@ body {
   cursor: pointer;
   transform: scale(1.05);
   transition: transform 0.3s ease
+}
+
+#create-your-own-cheese-button {
+  position: fixed;
+  bottom: 6vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2vmin 3vmin;
+  font-size: 3vmin;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 1vmin;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+#create-your-own-cheese-button:hover {
+  background-color: #667;
 }
 
 /* Back Arrow */

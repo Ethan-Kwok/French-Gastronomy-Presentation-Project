@@ -12,7 +12,7 @@ const handleOnMove = e => {
   if(track.dataset.mouseDownAt === "0") return;
   
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
+        maxDelta = window.innerWidth * 3 / 4; // Sensitivity of mouse drag; adjust as necessary
   
   const percentage = (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
@@ -82,3 +82,10 @@ images.forEach((imageContainer) => {
         imageContainer.classList.toggle('flipped'); // Toggle the flipped class
     });
 });
+
+
+
+// Create your own cheese button
+function beginCheeseMaking() {
+  window.location.href = 'createyourowncheese.html';
+}
