@@ -1,0 +1,102 @@
+@media screen and (max-width: 480px) {
+  body {
+    overflow-y: hidden;
+  }
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  margin: 0rem;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Main Menu */
+#menu-image-track {
+  display: flex;
+  gap: 8vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, -50%); 
+  user-select: none;
+}
+
+.menu-image-container {
+  position: relative;
+  width: 40vmin;
+  height: 50vmin;
+  transform: scale(1);
+  transition: transform 0.2s ease
+}
+
+.menu-image, .menu-image-back {
+  width: 40vmin;
+  height: 50vmin;
+  object-fit: cover;
+  object-position: 100% center;
+  transform: scale(1);
+  transition: transform 0.2s ease;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.menu-image-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  background-color: white; /* TODO? Background for the back side */
+  /* TODO font style and font size */
+}
+
+.menu-image-container.flipped .menu-image {
+  transform: rotateY(180deg);
+}
+
+.menu-image-container.flipped .menu-image-back {
+  transform: rotateY(0deg);
+}
+
+#menu-image-track > .menu-image {
+  object-fit: cover;
+  object-position: 100% center;
+  transform: scale(1);
+  transition: transform 0.2s ease
+}
+
+#menu-image-track > .menu-image-container:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.3s ease
+}
+
+/* Back Arrow */
+
+#back-arrow {
+  position: fixed;  
+  top: 2vmin;           
+  left: 2vmin;          
+  width: 10vmin;      
+  height: 10vmin;    
+  z-index: 999;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.2s ease, opacity 0.2s;
+  /* Make it not highlightable */
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#back-arrow:hover {
+  cursor: pointer; /* Changes the cursor to indicate the image is clickable */
+  transform: scale(1.15);
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s;
+}
