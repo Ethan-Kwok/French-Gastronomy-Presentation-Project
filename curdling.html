@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img id="back-arrow" src="..\back-arrow.png" alt="Back">
+    <h1 id="menu-title">Separating curds and whey...</h1>
+    <div class="gif-container">
+        <img src="images/curdling.gif" alt="Separating curds and whey...">
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "moulding.html";
+        }, 5000);
+
+        // Back arrow
+        document.addEventListener('DOMContentLoaded', function() {
+            const backArrow = document.getElementById('back-arrow');
+
+            function handleBackArrowClick() {
+                window.location.href = 'index.html';
+            }
+
+            backArrow.addEventListener('click', handleBackArrowClick);
+        });
+    </script>
+</body>
+</html>

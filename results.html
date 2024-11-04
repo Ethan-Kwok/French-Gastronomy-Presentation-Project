@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img id="back-arrow" src="..\back-arrow.png" alt="Back">
+    <h1 id="menu-title">Here's your cheese!</h1>
+    <div class="cheese-image-container">
+        <img class="cheese-image" id="cheese-image" draggable="false" alt="Cheese Image"/>
+        <div class="cheese-image-back cheese-image-text">
+            <h2 class="menu-image-header" id="animal-region-header"></h2>
+            <p id="animal-region-text"></p>
+        </div>
+    </div>
+    <button id="copy-results-button" onclick="copyResults()">Copy results to clipboard</button>
+    <script src="results.js"></script>
+</body>
+</html>

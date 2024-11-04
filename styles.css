@@ -11,6 +11,8 @@ body {
   margin: 0rem;
   overflow: hidden;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Main Menu */
@@ -26,6 +28,7 @@ body {
   top: 3vmin;
   bottom: 5vmin;
   user-select: none;
+  z-index: -1;
 }
 
 #menu-image-track {
@@ -126,8 +129,291 @@ body {
   background-color: #667;
 }
 
-/* Back Arrow */
 
+
+/* Back Arrow */
+#back-arrow {
+  position: fixed;  
+  top: 2vmin;           
+  left: 2vmin;          
+  width: 10vmin;      
+  height: 10vmin;    
+  z-index: 999;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.2s ease, opacity 0.2s;
+  /* Make it not highlightable */
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#back-arrow:hover {
+  cursor: pointer; /* Changes the cursor to indicate the image is clickable */
+  transform: scale(1.15);
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s;
+}
+
+
+
+/* Terroir & Animal */
+#button-container {
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  gap: 15vmin;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  margin-top: 120px;
+  padding: 30px 60px;
+  font-size: 40px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.image {
+  scale: 1.5;
+  height: 350px;
+  max-height: 25vmin;
+  border-radius: 1vmin;
+}
+
+.btn:hover {
+  background-color: #c0c0c0;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  background-color: darkslategray;
+}
+
+
+
+/* Click Animals */
+.animals-background {
+  /* background-image: url('mountain.avif'); */
+  background-repeat: repeat;
+  background-size: 25%;
+  overflow: scroll;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+.animals-image-container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.animals-image-container img{
+  position: absolute;
+  transition: transform 0.5s;
+  user-select: none; /* Prevents text selection */
+  -webkit-user-drag: none; /* Prevents image dragging in WebKit browsers */
+}
+
+.animals-counter-container {
+  position: fixed;
+  top: 2vmin;
+  right: 2vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.animals-counter {
+  padding: 0;
+  font-size: 6vmin;
+  font-weight: bold;
+  z-index: 100;
+  margin-bottom: 0.5vmin;
+}
+
+.scale-fade-out {
+  animation: scaleFadeOut 0.5s forwards; /* 0.5 seconds duration, forwards to keep the final state */
+}
+
+@keyframes scaleFadeOut {
+  100% {
+    transform: scale(0); /* Scale down to nothing */
+    opacity: 0; /* Fade out */
+  }
+}
+
+#follower {
+  position: absolute;
+  pointer-events: none; 
+  z-index: 9999;
+  width: 10vmin;
+  height: auto;
+}
+
+#timer {
+  position: fixed;  /* Fixes the position to the top */
+  bottom: 5vmin;        /* Distance from the top */
+  left: 50%;        /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for half of its own width */
+  font-size: 5vmin;  /* Adjust font size as needed */
+  color: black;      /* Text color */
+  z-index: 1000;     /* Ensure it is above other content */
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: Semi-transparent background */
+  padding: 10px;     /* Optional: Padding around the text */
+  border-radius: 5px; /* Optional: Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: Shadow effect */
+}
+
+
+
+
+/* Moulding */
+#mould-containers-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+#mould-containers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  margin: auto auto;
+  padding: 2px;
+}
+
+.mould-image {
+  width: 17vmin;
+  cursor: pointer;
+  -webkit-user-drag: none; /* Safari */
+}
+
+.mould-image:hover {
+  cursor: pointer; /* Changes the cursor to indicate the image is clickable */
+  transform: scale(1.05);
+  z-index: 100;
+  transition: transform 0.3s ease, opacity 0.3s;
+}
+
+
+
+/* Curdling */
+.gif-container {
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gif-container img {
+  width: 35vmin;
+  height: auto;
+}
+
+
+
+/* Results */
+.cheese-image-container {
+  position: relative;
+  width: 700px;
+  height: 600px;
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+.cheese-image, .cheese-image-back {
+  width: 700px;
+  height: 600px;
+  object-fit: cover;
+  object-position: center center;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: scale(1);
+  transition: transform 0.6s;
+  border-radius: 2vmin;
+}
+
+.cheese-image-back {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the left */
+  transform: rotateY(180deg);
+  /* padding: 3vmin; */
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+  background-color: white;
+  font-family: 'Times New Roman', Times, serif;
+  /* font-size: 2.2vmin; */
+  font-size: 30px;
+  color: black;
+  /* TODO font style and font size */
+}
+
+.cheese-image-header {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 0vmin;
+  color: black;
+}
+
+.cheese-image-container.flipped .cheese-image {
+  transform: rotateY(180deg);
+}
+
+.cheese-image-container.flipped .cheese-image-back {
+  transform: rotateY(0deg);
+}
+
+.cheese-image-container:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.3s ease
+}
+
+#copy-results-button {
+  position: fixed;
+  bottom: 6vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2vmin 3vmin;
+  font-size: 3vmin;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 1vmin;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+#copy-results-button:hover {
+  background-color: #667;
+}
+
+#copy-results-button:active {
+  transform: translateX(-50%) translateY(2px); /* Move down */
+  background-color: #555; /* Darker background color */
+}
+
+
+
+/* Back Arrow */
 #back-arrow {
   position: fixed;  
   top: 2vmin;           
