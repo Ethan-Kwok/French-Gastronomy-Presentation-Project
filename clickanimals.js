@@ -3,7 +3,7 @@ const animalsBackground = document.querySelector('.animals-background');
 const numImagesPerAnimal = 5;
 let animalsClicked = 0;
 
-let animal = localStorage.getItem("animal");
+let animal = localStorage.getItem("animal").toLowerCase();
 let region = localStorage.getItem("region");
 const backgroundImages = {
     valley: 'url("images/grass.jpg")',
